@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ULTRA PREMIUM Watch Ads & Earn</title>
+    <style>
+        /* Base Styling & Variables */
+        :root {
+            --color-primary: #007bff; /* Darker blue for primary actions */
+            --color-secondary: #28a745; /* Green for success/earnings */
+            --color-accent: #6f42c1; /* Purple for depth/emphasis */
+            --color-text-dark: #212529; /* Near black for main text */
+            --color-text-light: #495057; /* Dark grey for secondary text */
+            --color-bg-light: #f8f9fa; /* Very light grey */
+            --color-bg-dark: #e9ecef; /* Slightly darker grey */
+            --color-card-bg: #ffffff; /* Pure white for cards */
+            --color-border-light: #dee2e6; /* Light border */
+            --color-shadow-light: rgba(0, 0, 0, 0.08);
+            --color-shadow-medium: rgba(0, 0, 0, 0.15);
+            --color-shadow-heavy: rgba(0, 0, 0, 0.25);
+
+            /* Gradients for premium look */
+            --gradient-blue: linear-gradient(135deg, #0056b3 0%, #007bff 100%);
+            --gradient-green: linear-gradient(135deg, #218838 0%, #28a745 100%);
+            --gradient-accent: linear-gradient(135deg, #5b3e94 0%, #6f42c1 100%);
+            --gradient-dark-bg: linear-gradient(45deg, #1a2a40 0%, #2c3e50 100%); /* Dark, deep gradient */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--gradient-dark-bg); /* Dark gradient background for overall site */
+            color: var(--color-text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 40px 20px; /* More padding around the main container */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
+
+        /* Glassmorphism effect base */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Container for the main website content */
+        .container {
+            max-width: 1100px; /* Wider container */
+            width: 100%;
+            background-color: var(--color-card-bg); /* Still white for inner content */
+            box-shadow: 0 15px 60px var(--color-shadow-heavy); /* Deeper, more spread shadow */
+            border-radius: 25px; /* Even more rounded corners */
+            overflow: hidden;
+            position: relative;
+            z-index: 10; /* Ensure it's above body background */
+        }
+
+        /* Header Styling - Hero Section */
+        header {
+            text-align: center;
+            padding: 60px 40px; /* More generous padding */
+            background: linear-gradient(135deg, #1c2b3d 0%, #3a4b60 100%); /* Deep, rich header gradient */
+            color: white;
+            position: relative;
+            overflow: hidden;
+            border-radius: 25px 25px 0 0;
+            isolation: isolate; /* For z-index stacking context */
+        }
+
+        /* Animated background effect for header */
+        header::before, header::after {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            animation: headerBlob1 15s infinite alternate ease-in-out;
+            z-index: -1;
+        }
+
+        header::after {
+            animation: headerBlob2 18s infinite alternate-reverse ease-in-out;
+            background: radial-gradient(circle, rgba(0, 123, 255, 0.08) 0%, transparent 70%);
+        }
+
+        @keyframes headerBlob1 {
+            0% { top: -20%; left: -20%; transform: scale(1) rotate(0deg); }
+            50% { top: 70%; left: 80%; transform: scale(1.2) rotate(180deg); }
+            100% { top: -20%; left: -20%; transform: scale(1) rotate(360deg); }
+        }
+        @keyframes headerBlob2 {
+            0% { top: 80%; left: -10%; transform: scale(1.1) rotate(0deg); }
+            50% { top: -10%; left: 60%; transform: scale(1.3) rotate(-180deg); }
+            100% { top: 80%; left: -10%; transform: scale(1.1) rotate(-360deg); }
+        }
+
+        header h1 {
+            font-size: 4em; /* Even larger, more majestic */
+            margin-bottom: 20px;
+            font-weight: 800; /* Extra bold */
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Navigation Styling */
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 30px 20px; /* Increased padding */
+            background: linear-gradient(180deg, #f0f2f5 0%, #eef2f6 100%); /* Lighter gradient for nav */
+            border-bottom: 1px solid var(--color-border-light);
+            box-shadow: inset 0 -4px 12px rgba(0, 0, 0, 0.05);
+            gap: 20px; /* More space between buttons */
+            position: sticky; /* Sticky nav */
+            top: 0;
+            z-index: 100;
+        }
+
+        nav button {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #00aaff 100%); /* Brighter blue gradient */
+            color: white;
+            border: none;
+            padding: 16px 32px; /* Larger, more prominent buttons */
+            border-radius: 15px; /* Even more rounded */
+            cursor: pointer;
+            font-size: 1.15em;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); /* Bouncy transition */
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4); /* Stronger shadow */
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        nav button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent); /* Shine effect */
+            transition: all 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        nav button:hover::before {
+            left: 100%;
+        }
+
+        nav button:hover {
+            transform: translateY(-8px) scale(1.05); /* More dramatic lift and scale */
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.6);
+        }
+
+        nav button.active {
+            background: var(--gradient-green);
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.5);
+            transform: translateY(-4px) scale(1.02); /* Active state is also lifted */
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.5); /* White border for active */
+        }
+
+        /* Section Styling */
+        .content-section {
+            display: none;
+            padding: 40px; /* More padding */
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeInScale 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; /* Bouncy fade in */
+        }
+
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: translateY(20px) scale(0.98); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        h2 {
+            color: var(--color-text-dark);
+            text-align: center;
+            margin-bottom: 50px; /* More spacing */
+            font-size: 2.8em; /* Larger heading */
+            padding-bottom: 20px;
+            font-weight: 800;
+            position: relative;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px; /* Longer accent line */
+            height: 5px; /* Thicker accent line */
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            border-radius: 3px;
+        }
+
+        /* General Card Styling (used for dashboard-info, earning-section, etc.) */
+        .dashboard-info, .earning-section, .withdrawal-options, .policy-content, .referral-content {
+            background-color: var(--color-card-bg);
+            padding: 35px; /* More padding */
+            border-radius: 18px; /* More rounded */
+            margin-bottom: 35px;
+            box-shadow: 0 6px 25px var(--color-shadow-medium); /* Deeper, softer shadow */
+            border: 1px solid var(--color-border-light);
+            transition: all 0.3s ease;
+        }
+        .dashboard-info:hover, .earning-section:hover, .withdrawal-options:hover, .policy-content:hover, .referral-content:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px var(--color-shadow-heavy);
+        }
+
+        /* Dashboard specific */
+        #balanceDisplay {
+            font-size: 3.8em; /* Very prominent */
+            font-weight: bold;
+            color: var(--color-secondary);
+            text-align: center;
+            margin-top: 30px;
+            padding: 25px 0;
+            background-color: #e6ffed; /* Lighter green background */
+            border-radius: 15px;
+            box-shadow: inset 0 0 15px rgba(40, 167, 69, 0.2);
+            animation: pulseEffect 2s infinite alternate ease-in-out;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        @keyframes pulseEffect {
+            0% { transform: scale(1); box-shadow: inset 0 0 15px rgba(40, 167, 69, 0.2); }
+            100% { transform: scale(1.01); box-shadow: inset 0 0 20px rgba(40, 167, 69, 0.3); }
+        }
+
+        /* Ad-container for timed view */
+        .ad-container {
+            background-color: var(--color-bg-light);
+            border-radius: 18px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px var(--color-shadow-medium);
+            border: 1px solid var(--color-border-light);
+        }
+
+        .ad-container iframe {
+            width: 100%;
+            height: 400px; /* Even taller iframe */
+            border: 1px solid #c8d4e0;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .timer-display {
+            font-size: 2.5em; /* Larger timer */
+            font-weight: bold;
+            color: #dc3545; /* Prominent red */
+            margin-top: 25px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+            letter-spacing: 1px;
+        }
+
+        .earning-message {
+            font-size: 1.5em;
+            color: var(--color-primary);
+            margin-top: 25px;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.08);
+        }
+
+        /* Standard Action Buttons (e.g., Credit My Earnings, Withdrawal selects) */
+        .action-button {
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.15em;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            display: block;
+            margin: 30px auto 0 auto;
+            width: fit-content;
+            text-decoration: none;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .action-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .action-button:hover::before {
+            left: 100%;
+        }
+
+        .action-button:hover:not(:disabled) {
+            background: linear-gradient(135deg, #495057 0%, #343a40 100%);
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+        }
+
+        .action-button:disabled {
+            background-color: #d1d8df;
+            color: #a0aab8;
+            cursor: not-allowed;
+            opacity: 0.8;
+            box-shadow: none;
+            transform: none;
+        }
+
+        /* Task Posts Grid Layout (Ultra Premium Styling) */
+        #taskPostsContainer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Wider min width for cards */
+            gap: 35px; /* Increased gap */
+            padding-top: 25px;
+            margin-top: 35px;
+        }
+
+        .task-card {
+            background-color: var(--color-card-bg);
+            border-radius: 20px; /* More rounded */
+            box-shadow: 0 10px 35px var(--color-shadow-light); /* Deeper shadow */
+            padding: 35px;
+            text-align: center;
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 280px; /* Taller for better content distribution */
+            border: 1px solid var(--color-border-light);
+            position: relative;
+            overflow: hidden;
+            z-index: 0;
+            transform-style: preserve-3d; /* For 3D transform */
+        }
+
+        .task-card::before {
+            content: '';
+            position: absolute;
+            inset: 0; /* Cover entire card */
+            background: radial-gradient(circle at 50% 0%, rgba(0, 123, 255, 0.05) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            transform: translateY(-20px);
+            z-index: -1;
+        }
+
+        .task-card:hover::before {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .task-card:hover {
+            transform: translateY(-12px) scale(1.02); /* More dramatic lift and scale */
+            box-shadow: 0 18px 45px var(--color-shadow-medium); /* Even deeper shadow on hover */
+        }
+
+        .task-card h3 {
+            color: var(--color-text-dark);
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 18px;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+        }
+
+        .task-card p {
+            font-size: 1.1em;
+            color: var(--color-text-light);
+            margin-bottom: 35px;
+            flex-grow: 1;
+        }
+
+        .task-link-button {
+            display: block;
+            background: var(--gradient-blue);
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.15em;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+            width: 95%; /* Wider button */
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+        .task-link-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transition: all 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            z-index: -1;
+        }
+        .task-link-button:hover::before {
+            width: 300%;
+            height: 300%;
+            opacity: 1;
+        }
+
+        .task-link-button:hover {
+            background: linear-gradient(135deg, #007bff 0%, #00aaff 100%);
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0, 123, 255, 0.6);
+        }
+
+        .task-link-button[data-completed="true"] {
+            background: var(--gradient-green);
+            pointer-events: none;
+            cursor: default;
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+            transform: none;
+            opacity: 0.95;
+            color: white; /* Ensure text remains white */
+        }
+        .task-link-button[data-completed="true"]::before {
+            animation: none; /* Disable hover shine */
+            opacity: 0;
+        }
+
+
+        /* Withdrawal form styles */
+        .form-group {
+            margin-bottom: 30px; /* More spacing */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 12px; /* More spacing */
+            font-weight: bold;
+            color: var(--color-text-dark);
+            font-size: 1.15em;
+        }
+
+        .form-group input[type="email"],
+        .form-group input[type="text"],
+        .form-group input[type="number"] {
+            width: calc(100% - 32px); /* Account for padding + border */
+            padding: 16px; /* More padding */
+            border: 1px solid var(--color-border-light);
+            border-radius: 12px; /* More rounded */
+            font-size: 1.05em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            background-color: var(--color-bg-light); /* Light grey for inputs */
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 6px rgba(0, 123, 255, 0.2); /* Softer, wider focus shadow */
+            background-color: var(--color-card-bg); /* White background on focus */
+        }
+
+        .sub-options {
+            border-left: 6px solid var(--color-primary); /* Thicker, blue border */
+            padding-left: 30px; /* More padding */
+            margin-top: 30px;
+            background-color: var(--color-bg-light);
+            border-radius: 0 15px 15px 0; /* Rounded only on right side */
+            padding-bottom: 20px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
+            animation: slideInLeft 0.5s ease-out; /* Entrance animation for sub-options */
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .sub-options h3 {
+            color: var(--color-text-dark);
+            font-size: 2em;
+            margin-bottom: 25px;
+            padding-top: 20px;
+        }
+
+        .submit-withdrawal-button {
+            background: var(--gradient-green);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.45);
+            width: auto;
+            margin-top: 35px;
+            padding: 18px 40px; /* Larger padding */
+        }
+
+        .submit-withdrawal-button:hover {
+            background: linear-gradient(135deg, #218838 0%, #1a712e 100%);
+            box-shadow: 0 10px 25px rgba(40, 167, 69, 0.6);
+        }
+
+        .submission-message {
+            margin-top: 35px;
+            padding: 30px;
+            border-radius: 15px;
+            background-color: #e6ffe6; /* Light green */
+            color: #1a712e;
+            border: 1px solid #a3e0a3;
+            display: none;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* Policy & Referral */
+        .policy-content ul, .referral-content ul {
+            list-style: disc;
+            margin-left: 35px;
+            padding: 0;
+            color: var(--color-text-light);
+            font-size: 1.05em;
+        }
+        .policy-content h3, .referral-content h3 {
+            color: var(--color-text-dark);
+            font-size: 2em;
+            margin-bottom: 25px;
+        }
+        .referral-content input[type="text"] {
+            background-color: var(--color-bg-dark);
+            border: 1px dashed var(--color-border-light);
+            color: var(--color-text-dark);
+            font-weight: bold;
+            text-align: center;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 1.1em;
+            cursor: text;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .referral-content input[type="text"]:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05), 0 0 0 4px rgba(0, 123, 255, 0.15);
+        }
+        .referral-content p {
+            font-size: 1.1em;
+            color: var(--color-text-light);
+        }
+        .referral-content ul li {
+            margin-bottom: 10px;
+        }
+
+
+        /* AI Chatbox */
+        .chatbox-container {
+            position: fixed;
+            bottom: 40px; /* More offset */
+            right: 40px; /* More offset */
+            width: 380px; /* Wider */
+            background-color: var(--color-card-bg);
+            border-radius: 25px; /* More rounded */
+            box-shadow: 0 15px 50px var(--color-shadow-heavy); /* Deeper shadow */
+            z-index: 1000;
+            overflow: hidden;
+            display: none;
+            border: 1px solid var(--color-border-light);
+            animation: chatboxEnter 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards; /* Bouncy entrance */
+        }
+        @keyframes chatboxEnter {
+            0% { opacity: 0; transform: translateY(50px) scale(0.9); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .chatbox-header {
+            background: var(--gradient-blue);
+            color: white;
+            padding: 20px 30px; /* More padding */
+            border-top-left-radius: 24px; /* Matches container */
+            border-top-right-radius: 24px;
+            font-weight: bold;
+            font-size: 1.3em; /* Larger title */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .chatbox-toggle-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2em; /* Larger X */
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+            transition: transform 0.3s ease;
+        }
+        .chatbox-toggle-button:hover {
+            transform: rotate(180deg) scale(1.1); /* More dynamic X */
+        }
+
+        .chatbox-body {
+            padding: 25px;
+            max-height: 500px; /* Taller chatbox */
+            overflow-y: auto;
+            background-color: var(--color-bg-light);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Chat bubbles */
+        .chat-message {
+            background-color: #f0f4f7;
+            padding: 18px;
+            border-radius: 18px; /* More rounded bubbles */
+            max-width: 88%;
+            font-size: 1.0em;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            line-height: 1.5;
+            transition: transform 0.2s ease;
+        }
+
+        .chat-message:hover {
+            transform: translateY(-2px);
+        }
+
+        .chat-message.bot {
+            background-color: #e6f7ff; /* Light blue for bot */
+            color: var(--color-primary);
+            align-self: flex-start;
+            text-align: left;
+            border-top-right-radius: 8px; /* Slightly different corner for distinction */
+        }
+        .chat-message:not(.bot) { /* User messages */
+            background-color: #d4edda; /* Light green for user */
+            color: #155724;
+            align-self: flex-end;
+            text-align: left;
+            border-top-left-radius: 8px; /* Slightly different corner for distinction */
+        }
+
+        .chat-question-button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background-color: #f7fcff; /* Very light blue */
+            border: 1px solid #cfe2ff;
+            padding: 16px 25px;
+            border-radius: 12px;
+            cursor: pointer;
+            margin-bottom: 12px;
+            transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+            font-size: 1.05em;
+            color: var(--color-text-dark);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .chat-question-button:hover {
+            background-color: #e9f5ff;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #chatboxTrigger {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: linear-gradient(45deg, var(--color-primary) 0%, #00aaff 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 75px; /* Larger trigger */
+            height: 75px;
+            font-size: 2.8em; /* Larger icon */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.6);
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Bouncy transition */
+            transform-style: preserve-3d;
+        }
+
+        #chatboxTrigger:hover {
+            background: linear-gradient(45deg, #00aaff 0%, #00c7ff 100%);
+            transform: scale(1.18) rotate(15deg); /* More dynamic hover */
+            box-shadow: 0 15px 45px rgba(0, 123, 255, 0.8);
+        }
+
+        /* Animated Notifications */
+        #notification-bar {
+            position: fixed;
+            bottom: 40px;
+            left: 40px;
+            background-color: rgba(40, 167, 69, 0.98);
+            color: white;
+            padding: 18px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+            z-index: 999;
+            animation: notificationBounceIn 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards; /* Very bouncy */
+            min-width: 320px;
+            text-align: center;
+            display: none;
+            opacity: 0;
+            transform: translateX(-200%); /* Start much further left */
+            font-size: 1.15em;
+            font-weight: 500;
+        }
+
+        @keyframes notificationBounceIn {
+            0% { opacity: 0; transform: translateX(-200%) scale(0.8); }
+            50% { opacity: 1; transform: translateX(10%) scale(1.05); } /* Overshoot */
+            100% { opacity: 1; transform: translateX(0) scale(1); }
+        }
+
+        @keyframes notificationBounceOut {
+            0% { opacity: 1; transform: translateX(0) scale(1); }
+            100% { opacity: 0; transform: translateX(-200%) scale(0.8); }
+        }
+
+        @media (max-width: 992px) {
+            .container {
+                border-radius: 20px;
+            }
+            header {
+                padding: 40px 30px;
+            }
+            header h1 {
+                font-size: 3.2em;
+            }
+            header p {
+                font-size: 1.1em;
+            }
+            nav button {
+                padding: 14px 25px;
+                font-size: 1.05em;
+            }
+            h2 {
+                font-size: 2.5em;
+                margin-bottom: 40px;
+            }
+            .content-section {
+                padding: 30px;
+            }
+            .dashboard-info, .earning-section, .withdrawal-options, .policy-content, .referral-content, .task-card {
+                padding: 25px;
+                border-radius: 15px;
+                margin-bottom: 25px;
+            }
+            #balanceDisplay {
+                font-size: 3em;
+                padding: 20px 0;
+            }
+            .ad-container iframe {
+                height: 300px;
+            }
+            .timer-display {
+                font-size: 2.2em;
+            }
+            .earning-message {
+                font-size: 1.3em;
+            }
+            .action-button, .task-link-button, .submit-withdrawal-button {
+                padding: 16px 30px;
+                font-size: 1.1em;
+            }
+            #taskPostsContainer {
+                gap: 25px;
+            }
+            .task-card {
+                min-height: 260px;
+            }
+            .chatbox-container {
+                width: 350px;
+            }
+            #chatboxTrigger {
+                width: 70px;
+                height: 70px;
+                font-size: 2.6em;
+            }
+            #notification-bar {
+                min-width: 280px;
+                padding: 15px 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            .container {
+                margin: 0;
+                padding: 0; /* Header and sections will handle inner padding */
+                border-radius: 15px;
+            }
+            header {
+                padding: 30px 20px;
+                margin: 0; /* No negative margin */
+                border-radius: 15px 15px 0 0;
+            }
+            header h1 {
+                font-size: 2.5em;
+            }
+            header p {
+                font-size: 1.0em;
+            }
+            nav {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+                padding: 20px 15px;
+                position: static; /* Disable sticky on mobile for simpler layout */
+            }
+            nav button {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+            h2 {
+                font-size: 2em;
+                margin-bottom: 30px;
+            }
+            .content-section {
+                padding: 25px 20px;
+            }
+            .dashboard-info, .earning-section, .withdrawal-options, .policy-content, .referral-content, .task-card {
+                padding: 20px;
+                margin-bottom: 20px;
+                border-radius: 12px;
+            }
+            #balanceDisplay {
+                font-size: 2.2em;
+                padding: 15px 0;
+            }
+            .ad-container iframe {
+                height: 200px;
+            }
+            .timer-display {
+                font-size: 1.8em;
+            }
+            .earning-message {
+                font-size: 1.1em;
+            }
+            .action-button, .task-link-button, .submit-withdrawal-button {
+                padding: 14px 25px;
+                font-size: 1em;
+            }
+            #taskPostsContainer {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .task-card {
+                min-height: auto;
+            }
+            .task-link-button {
+                width: 90%;
+            }
+            .form-group input {
+                width: calc(100% - 20px);
+                padding: 12px;
+            }
+            .sub-options {
+                padding-left: 20px;
+            }
+
+            /* Mobile chatbox and notifications */
+            #notification-bar, .chatbox-container, #chatboxTrigger {
+                bottom: 15px;
+                right: 15px;
+                left: 15px; /* Span full width on mobile */
+                width: auto;
+            }
+            .chatbox-container {
+                width: calc(100% - 30px);
+                max-height: 60vh;
+                border-radius: 15px;
+            }
+            .chatbox-header {
+                border-radius: 14px 14px 0 0;
+            }
+            #chatboxTrigger {
+                width: 60px;
+                height: 60px;
+                font-size: 2.2em;
+            }
+            .chat-message {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+            .chat-question-button {
+                padding: 12px 18px;
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Earn UlTRA Money</h1>
+            <p>Your premier destination to discover earning opportunities and track your progress.</p>
+        </header>
+
+        <nav>
+            <button onclick="showSection('dashboard', this)" class="active">Dashboard</button>
+            <button onclick="showSection('task-earn', this)">Complete Task to Earn</button>
+            <button onclick="showSection('watch-ad-earn', this)">Watch Ad & Earn</button>
+            <button onclick="showSection('referral', this)">Referral Program</button>
+            <button onclick="showSection('withdrawal', this)">Withdrawal</button>
+            <button onclick="showSection('policy', this)">Policy Page</button>
+        </nav>
+
+        <div id="dashboard-section" class="content-section active">
+            <h2>Your Dashboard</h2>
+            <div id="balanceDisplay">Current Balance: $0.00</div>
+            <div class="dashboard-info">
+                <p style="font-size: 1.1em; color: var(--color-text-light);">Welcome to your personalized earning dashboard! Track your progress, explore new tasks, and manage your payouts effortlessly.</p>
+                <p style="font-size: 1.0em; color: var(--color-text-light); margin-top: 15px;">Navigate through the sections above to start your earning journey.</p>
+            </div>
+        </div>
+
+        <div id="task-earn-section" class="content-section">
+            <h2>Complete Tasks to Earn ($1.00 - $7.00 per task)</h2>
+            <div class="earning-section">
+                <p style="text-align: center; font-size: 1.1em; color: var(--color-text-light); margin-bottom: 40px;">Engage with these sponsored tasks. Each click opens an ad in a new tab and instantly credits a random amount between $1.00 and $7.00 to your dashboard balance (simulated).</p>
+                <div id="taskPostsContainer">
+                    <!-- Task posts will be dynamically loaded here by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <div id="watch-ad-earn-section" class="content-section">
+            <h2>Watch Ad & Earn (Timed View)</h2>
+            <div class="earning-section">
+                <p style="text-align: center; font-size: 1.1em; color: var(--color-text-light); margin-bottom: 40px;">Focus on the ad below for 10 seconds. Once the timer completes, activate the button to receive your random earnings!</p>
+                <div class="ad-container">
+                    <h3>Ad View Opportunity</h3>
+                    <iframe id="watchAdFrame" src="https://spendharassingwarmly.com/t75wmytbb?key=310969957557de70b2985540d31a7958" frameborder="0" allowfullscreen></iframe>
+                    <p class="timer-display">Time remaining: <span id="adTimer">10</span> seconds</p>
+                    <button id="creditAdBtn" class="action-button" disabled onclick="creditAd()">Credit My Earnings</button>
+                    <p id="adEarningMessage" class="earning-message"></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="referral-section" class="content-section">
+            <h2>Referral Program</h2>
+            <div class="referral-content">
+                <p style="font-size: 1.1em; color: var(--color-text-light);">Empower your network! Invite friends and earn a simulated $7.00 for each successful invite once they theoretically meet the earning criteria.</p>
+                <p style="font-weight: bold; margin-top: 30px; font-size: 1.05em; color: var(--color-text-dark);">Your Unique Referral Link (Simulated):</p>
+                <input type="text" value="https://yourwebsite.com/refer/YOURUSERID" style="width: calc(100% - 22px); padding: 15px; margin-bottom: 30px; border: 1px solid var(--color-border-light); border-radius: 12px; font-size: 1.0em; text-align: center; background-color: var(--color-bg-light);" readonly>
+                <p style="font-size: 1.0em; color: var(--color-text-light);">Share this link to grow your earnings. Remember, this is a simulation.</p>
+                <ul style="margin-top: 30px;">
+                    <li>Seamless sharing across social media and messaging platforms.</li>
+                    <li>Transparent tracking of your invited members and earned bonuses.</li>
+                    <li>Unlock greater earning potential with every new active user!</li>
+                </ul>
+                <p style="font-size: 0.9em; color: #888; margin-top: 35px;"><em>Note: In a real application, this would require secure user tracking and a robust backend database for legitimate referral management.</em></p>
+            </div>
+        </div>
+
+        <div id="withdrawal-section" class="content-section">
+            <h2>Withdrawal</h2>
+            <div class="withdrawal-options">
+                <p style="font-size: 1.1em; color: var(--color-text-light);">Minimum withdrawal amount: <strong style="color: #e74c3c;">$500.00</strong> (Simulated)</p>
+                <p style="font-size: 1.1em; margin-top: 15px; color: var(--color-text-light);">Your Current Balance: <span id="withdrawalBalanceDisplay" style="font-weight: bold; color: var(--color-secondary);">$0.00</span></p>
+
+                <div class="form-group" style="margin-top: 40px;">
+                    <label>Select Your Preferred Payout Method:</label>
+                    <button class="action-button" onclick="showWithdrawalOption('paypal')" style="width: 100%; margin: 15px 0;">1. Payment with PayPal</button>
+                    <button class="action-button" onclick="showWithdrawalOption('crypto')" style="width: 100%; margin: 15px 0;">2. Payment with Crypto</button>
+                    <button class="action-button" onclick="showWithdrawalOption('bank')" style="width: 100%; margin: 15px 0;">3. Payment with Bank Account</button>
+                </div>
+
+                <div id="paypalOptions" class="sub-options" style="display: none;">
+                    <h3>PayPal Details</h3>
+                    <div class="form-group">
+                        <label for="paypalEmail">Submit your email address of PayPal:</label>
+                        <input type="email" id="paypalEmail" placeholder="your.email@example.com">
+                    </div>
+                    <button class="action-button submit-withdrawal-button" onclick="submitWithdrawal('PayPal')">Confirm PayPal Submission</button>
+                </div>
+
+                <div id="cryptoOptions" class="sub-options" style="display: none;">
+                    <h3>Crypto Details</h3>
+                    <p style="color: #e74c3c; font-weight: bold; font-size: 0.95em; margin-bottom: 20px;">Please ensure your payment address is absolutely correct to avoid loss of simulated funds!</p>
+                    <div class="form-group">
+                        <label for="usdtAddress">Submit USDT Address:</label>
+                        <input type="text" id="usdtAddress" placeholder="Your USDT TRC20/ERC20 address">
+                    </div>
+                    <div class="form-group">
+                        <label for="bitcoinAddress">Submit BITCOIN Address:</label>
+                        <input type="text" id="bitcoinAddress" placeholder="Your Bitcoin address">
+                    </div>
+                    <button class="action-button submit-withdrawal-button" onclick="submitWithdrawal('Crypto')">Confirm Crypto Submission</button>
+                </div>
+
+                <div id="bankOptions" class="sub-options" style="display: none;">
+                    <h3>Bank Account Details</h3>
+                    <div class="form-group">
+                        <label for="bankAccountNumber">Bank Account Number:</label>
+                        <input type="text" id="bankAccountNumber" placeholder="Your bank account number">
+                    </div>
+                    <div class="form-group">
+                        <label for="swiftNumber">SWIFT Number:</label>
+                        <input type="text" id="swiftNumber" placeholder="Your bank's SWIFT/BIC code">
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country:</label>
+                        <input type="text" id="country" placeholder="Your country">
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" placeholder="Your first name">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" placeholder="Your last name">
+                    </div>
+                    <button class="action-button submit-withdrawal-button" onclick="submitWithdrawal('Bank Account')">Confirm Bank Account Submission</button>
+                </div>
+
+                <div id="withdrawalSubmissionMessage" class="submission-message">
+                    Your withdrawal request has been submitted successfully!
+                    <p style="font-size: 0.9em; margin-top: 10px;"><em>In a real system, these details would be securely saved to your dashboard, and actual funds processed within 3 business days.</em></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="policy-section" class="content-section">
+            <h2>Policy Page</h2>
+            <div class="policy-content">
+                <h3>Terms of Service (Simulated)</h3>
+                <p style="color: var(--color-text-light);">Welcome to our platform! By using this service, you agree to the following terms. This platform offers simulated earnings for watching ads and completing tasks. All balances displayed are for demonstration purposes only and do not represent real money. Withdrawals are simulated and do not result in actual monetary payouts.</p>
+                <p style="color: var(--color-text-light); margin-top: 15px;">We reserve the right to modify these terms at any time. Your continued use of the service implies acceptance of the revised terms.</p>
+
+                <h3>Privacy Policy (Simulated)</h3>
+                <p style="color: var(--color-text-light);">We value your privacy. This demonstration site does not collect any personal data. Any information you enter into forms is processed client-side only and is not stored or transmitted. Since this is a simulated environment, no real user data is at risk.</p>
+                <p style="color: var(--color-text-light); margin-top: 15px;">If this were a real application, we would clearly outline how your data is collected, used, and protected, in compliance with privacy regulations like GDPR and CCPA.</p>
+
+                <h3>Earning Guidelines (Simulated)</h3>
+                <p style="color: var(--color-text-light);">Earning on this platform is based on simulated ad views and task completions. The amounts credited to your simulated balance are random or fixed as described on the respective earning pages. Please remember these are not real earnings.</p>
+
+                <h3>Withdrawal Policy (Simulated)</h3>
+                <p style="color: var(--color-text-light);">Withdrawals are purely for demonstration. The minimum withdrawal amount is $500.00 (simulated). Once a withdrawal request is submitted, a confirmation message is displayed. No actual funds are transferred. The purpose is to demonstrate the user interface for a withdrawal process.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Chatbox Trigger Button -->
+    <button id="chatboxTrigger">💬</button>
+
+    <!-- AI Chatbox Container -->
+    <div id="chatboxContainer" class="chatbox-container">
+        <div class="chatbox-header" onclick="toggleChatbox()">
+            <span>AI Support Chat</span>
+            <button class="chatbox-toggle-button">✖</button>
+        </div>
+        <div id="chatboxBody" class="chatbox-body">
+            <div class="chat-message bot">Hello! I'm your virtual assistant. How can I help you today?</div>
+            <button class="chat-question-button" onclick="askQuestion('minWithdrawal')">What is the minimum withdrawal amount?</button>
+            <button class="chat-question-button" onclick="askQuestion('withdrawalDuration')">What is the withdrawal duration?</button>
+            <button class="chat-question-button" onclick="askQuestion('howToEarn')">How do I earn money on this platform?</button>
+            <button class="chat-question-button" onclick="askQuestion('contactSupport')">How can I contact human support?</button>
+        </div>
+        <!-- Input area is kept but disabled for a fixed FAQ bot -->
+        <div class="chat-input-area" style="display: flex; padding: 15px; border-top: 1px solid #eee; background-color: #f9f9f9;">
+            <input type="text" placeholder="Type your question..." disabled style="flex-grow: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; margin-right: 10px; background-color: #eef2f6;">
+            <button disabled style="background-color: var(--color-primary); color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: not-allowed; opacity: 0.7;">Send</button>
+        </div>
+    </div>
+
+    <!-- Animated Notification Bar -->
+    <div id="notification-bar"></div>
+
+    <script>
+        let currentBalance = parseFloat(localStorage.getItem('simulatedBalance')) || 0.00; // Load from localStorage
+        let adTimerInterval;
+        const adsterraLinks = [
+            "https://www.profitableratecpm.com/dai93sivnw?key=47b34a97408a7ff1079d0b94b3723b8c",
+            "https://singingfiles.com/show.php?l=0&u=1556135&id=70890",
+            "https://otieu.com/4/9677163",
+            "https://www.profitableratecpm.com/v30v9iyyx?key=d7ca0b45aee9f9b8402f8dce202ab1ff",
+        ];
+
+        // Define 10 simulated tasks
+        const tasks = JSON.parse(localStorage.getItem('simulatedTasks')) || [];
+        if (tasks.length === 0) { // Initialize if no tasks are found in localStorage
+            for (let i = 0; i < 10; i++) {
+                tasks.push({
+                    id: `task-${i + 1}`,
+                    adLink: adsterraLinks[i % adsterraLinks.length], // Cycle through available Adsterra links
+                    completed: false,
+                    earning: 0
+                });
+            }
+            localStorage.setItem('simulatedTasks', JSON.stringify(tasks));
+        }
+
+        // --- Core UI Functions ---
+        function saveState() {
+            localStorage.setItem('simulatedBalance', currentBalance.toFixed(2));
+            localStorage.setItem('simulatedTasks', JSON.stringify(tasks));
+        }
+
+        function updateBalanceDisplay() {
+            document.getElementById('balanceDisplay').textContent = `Current Balance: $${currentBalance.toFixed(2)}`;
+            document.getElementById('withdrawalBalanceDisplay').textContent = `$${currentBalance.toFixed(2)}`;
+            saveState(); // Save state after balance update
+        }
+
+        function showSection(sectionId, clickedButton) {
+            // Hide all content sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Show the requested section
+            document.getElementById(sectionId + '-section').classList.add('active');
+
+            // Deactivate all nav buttons
+            document.querySelectorAll('nav button').forEach(button => {
+                button.classList.remove('active');
+            });
+            // Activate the clicked button
+            if (clickedButton) {
+                clickedButton.classList.add('active');
+            }
+
+            // Reset ad related elements when switching sections
+            if (sectionId !== 'watch-ad-earn') {
+                resetAdTimer();
+                document.getElementById('adEarningMessage').textContent = '';
+                document.getElementById('creditAdBtn').disabled = true;
+                document.getElementById('adTimer').textContent = '10';
+            }
+
+            // Hide withdrawal sub-options when switching from withdrawal
+            if (sectionId !== 'withdrawal') {
+                document.getElementById('paypalOptions').style.display = 'none';
+                document.getElementById('cryptoOptions').style.display = 'none';
+                document.getElementById('bankOptions').style.display = 'none';
+                document.getElementById('withdrawalSubmissionMessage').style.display = 'none';
+                // Clear all input fields in withdrawal forms
+                document.querySelectorAll('#withdrawal-section input').forEach(input => input.value = '');
+            }
+
+            // Render tasks or start ad timer based on section
+            if (sectionId === 'task-earn') {
+                renderTasks();
+            } else if (sectionId === 'watch-ad-earn') {
+                document.getElementById('watchAdFrame').src = adsterraLinks[1]; // Reset watch ad
+                startAdTimer(); // Start the timer immediately when section is shown
+            }
+        }
+
+        // --- Ad Earning Functions (Simulated) ---
+        function startAdTimer() {
+            let timeLeft = 10;
+            const adTimerElement = document.getElementById('adTimer');
+            const creditAdButton = document.getElementById('creditAdBtn');
+
+            creditAdButton.disabled = true; // Disable button until timer runs out
+            adTimerElement.textContent = timeLeft;
+
+            adTimerInterval = setInterval(() => {
+                timeLeft--;
+                adTimerElement.textContent = timeLeft;
+
+                if (timeLeft <= 0) {
+                    clearInterval(adTimerInterval);
+                    creditAdButton.disabled = false; // Enable button
+                    adTimerElement.textContent = 'Ready!';
+                    document.getElementById('adEarningMessage').textContent = 'Click "Credit My Earnings" to get your reward!';
+                }
+            }, 1000);
+        }
+
+        function resetAdTimer() {
+            clearInterval(adTimerInterval);
+            document.getElementById('adTimer').textContent = '10';
+            document.getElementById('creditAdBtn').disabled = true;
+        }
+
+        function creditAd() {
+            const earnings = [0.10, 0.30, 0.50, 0.70, 1.00];
+            const randomEarning = earnings[Math.floor(Math.random() * earnings.length)];
+            currentBalance += randomEarning;
+            updateBalanceDisplay();
+
+            document.getElementById('adEarningMessage').textContent = `You earned $${randomEarning.toFixed(2)}!`;
+            document.getElementById('creditAdBtn').disabled = true; // Disable until next ad is ready/section reloaded
+
+            // Simulate "next ad" by resetting timer for user to click again later
+            setTimeout(() => {
+                document.getElementById('adEarningMessage').textContent = '';
+                resetAdTimer();
+                document.getElementById('watchAdFrame').src = adsterraLinks[Math.floor(Math.random() * adsterraLinks.length)]; // Load a new random ad
+                startAdTimer(); // Restart timer for next ad
+            }, 2000); // Give user 2 seconds to see their earning before resetting
+        }
+
+        // --- Task Earning Functions (Simulated) ---
+        function getRandomTaskEarning() {
+            // Generate a random earning between $1.00 and $7.00
+            return (Math.random() * (7.00 - 1.00) + 1.00).toFixed(2);
+        }
+
+        function completeTask(taskId) {
+            const task = tasks.find(t => t.id === taskId);
+            if (task && !task.completed) {
+                const taskEarning = parseFloat(getRandomTaskEarning()); // Parse to float
+                currentBalance += taskEarning;
+                task.earning = taskEarning; // Store earned amount
+                task.completed = true;
+                updateBalanceDisplay();
+                saveState(); // Save state after task completion
+
+                // Update UI for this specific task
+                const taskMessageElement = document.getElementById(`task-message-${taskId}`);
+                const taskLinkElement = document.getElementById(`task-link-${taskId}`);
+                
+                if (taskMessageElement) {
+                    taskMessageElement.textContent = `Task completed! You earned $${taskEarning.toFixed(2)}!`;
+                }
+                if (taskLinkElement) {
+                    taskLinkElement.textContent = `Completed! Earned $${taskEarning.toFixed(2)}`;
+                    taskLinkElement.style.background = 'linear-gradient(45deg, var(--color-secondary) 0%, #218838 100%)';
+                    taskLinkElement.style.pointerEvents = 'none';
+                    taskLinkElement.dataset.completed = 'true';
+                    taskLinkElement.style.boxShadow = '0 6px 20px rgba(40, 167, 69, 0.45)';
+                    taskLinkElement.style.transform = 'none'; /* Remove hover transform for completed */
+                }
+            }
+            // Note: The browser will automatically open the link in a new tab because it's an <a> tag with target="_blank"
+        }
+
+        function renderTasks() {
+            const taskPostsContainer = document.getElementById('taskPostsContainer');
+            // Clear existing task cards before re-rendering
+            const existingTaskCards = taskPostsContainer.querySelectorAll('.task-card');
+            existingTaskCards.forEach(card => card.remove());
+
+            tasks.forEach((task, index) => {
+                const taskPostDiv = document.createElement('div');
+                taskPostDiv.classList.add('task-card'); // Use new task-card class
+                taskPostDiv.innerHTML = `
+                    <h3>Task ${index + 1}: Click Ad & Earn!</h3>
+                    <p>Click this ad to earn a random amount ($1.00 - $7.00) directly!</p>
+                    <a href="${task.adLink}" target="_blank" class="task-link-button" id="task-link-${task.id}" onclick="if(!this.dataset.completed) { completeTask('${task.id}'); }">
+                        Click to View Ad & Earn!
+                    </a>
+                    <p id="task-message-${task.id}" class="earning-message" style="margin-top: 18px;"></p>
+                `;
+                taskPostsContainer.appendChild(taskPostDiv);
+
+                // If already completed, set the message and disable the link
+                if (task.completed) {
+                    const taskMessageElement = document.getElementById(`task-message-${task.id}`);
+                    const taskLinkElement = document.getElementById(`task-link-${task.id}`);
+                    if (taskMessageElement) {
+                        taskMessageElement.textContent = `Task completed! You earned $${task.earning.toFixed(2)}!`;
+                    }
+                    if (taskLinkElement) {
+                        taskLinkElement.textContent = `Completed! Earned $${task.earning.toFixed(2)}`;
+                        taskLinkElement.style.background = 'linear-gradient(45deg, var(--color-secondary) 0%, #218838 100%)';
+                        taskLinkElement.style.pointerEvents = 'none';
+                        taskLinkElement.dataset.completed = 'true';
+                        taskLinkElement.style.boxShadow = '0 6px 20px rgba(40, 167, 69, 0.45)';
+                    }
+                }
+            });
+        }
+
+        // --- Withdrawal Functions (Simulated) ---
+        function showWithdrawalOption(option) {
+            document.getElementById('paypalOptions').style.display = 'none';
+            document.getElementById('cryptoOptions').style.display = 'none';
+            document.getElementById('bankOptions').style.display = 'none';
+            document.getElementById('withdrawalSubmissionMessage').style.display = 'none'; // Hide any previous messages
+
+            if (option === 'paypal') {
+                document.getElementById('paypalOptions').style.display = 'block';
+            } else if (option === 'crypto') {
+                document.getElementById('cryptoOptions').style.display = 'block';
+            } else if (option === 'bank') {
+                document.getElementById('bankOptions').style.display = 'block';
+            }
+        }
+
+        function submitWithdrawal(method) {
+            // In a real application, input validation and server-side processing would happen here.
+            // For this simulation, we just show a message.
+            document.getElementById('withdrawalSubmissionMessage').textContent = `Your withdrawal request via ${method} has been submitted successfully! Please wait for 3 business days (simulated).`;
+            document.getElementById('withdrawalSubmissionMessage').style.display = 'block';
+
+            // Clear inputs (simulated)
+            document.querySelectorAll('#withdrawal-section input').forEach(input => input.value = '');
+        }
+
+        // --- AI Chatbox Functions (Simulated FAQ) ---
+        function toggleChatbox() {
+            const chatboxContainer = document.getElementById('chatboxContainer');
+            const chatboxTrigger = document.getElementById('chatboxTrigger');
+            if (chatboxContainer.style.display === 'flex') { // Changed from 'block'
+                chatboxContainer.style.display = 'none';
+                chatboxTrigger.style.display = 'flex';
+            } else {
+                chatboxContainer.style.display = 'flex';
+                chatboxContainer.style.flexDirection = 'column';
+                chatboxTrigger.style.display = 'none';
+                document.getElementById('chatboxBody').scrollTop = document.getElementById('chatboxBody').scrollHeight; // Scroll to bottom
+            }
+        }
+
+        function askQuestion(questionType) {
+            const chatboxBody = document.getElementById('chatboxBody');
+            let userMessage = '';
+            let botAnswer = '';
+
+            if (questionType === 'minWithdrawal') {
+                userMessage = 'What is the minimum withdrawal amount?';
+                botAnswer = 'The minimum withdrawal is $500, automatically processed to your Wallet or Bank account within 3 business days (simulated).';
+            } else if (questionType === 'withdrawalDuration') {
+                userMessage = 'What is the withdrawal duration?';
+                botAnswer = 'Payments are simulated to be sent every month. Please ensure your wallet or Bank account details are correct.';
+            } else if (questionType === 'howToEarn') {
+                userMessage = 'How do I earn money on this platform?';
+                botAnswer = 'You can earn money by completing tasks (clicking ads in new tabs for random earnings) and watching timed ads (with a 10-second timer). Navigate to the "Complete Task to Earn" or "Watch Ad & Earn" sections.';
+            } else if (questionType === 'contactSupport') {
+                userMessage = 'How can I contact human support?';
+                botAnswer = 'This is a simulated website, so there is no live human support. In a real application, you would find contact details on a dedicated "Contact Us" page or support portal.';
+            }
+
+            // Display user's question
+            const userMsgDiv = document.createElement('div');
+            userMsgDiv.classList.add('chat-message');
+            userMsgDiv.textContent = userMessage;
+            chatboxBody.appendChild(userMsgDiv);
+
+            // Simulate bot typing delay
+            setTimeout(() => {
+                const botMsgDiv = document.createElement('div');
+                botMsgDiv.classList.add('chat-message', 'bot');
+                botMsgDiv.textContent = botAnswer;
+                chatboxBody.appendChild(botMsgDiv);
+                chatboxBody.scrollTop = chatboxBody.scrollHeight; // Scroll to bottom
+            }, 500);
+        }
+
+        // --- Animated Notifications (Simulated) ---
+        const usernames = ["John D.", "Sarah K.", "Michael B.", "Emily R.", "David L.", "Sophia M.", "James P."];
+        function getRandomAmount(min, max) {
+            return (Math.random() * (max - min) + min).toFixed(2);
+        }
+
+        function showNotification() {
+            const notificationBar = document.getElementById('notification-bar');
+            const randomUser = usernames[Math.floor(Math.random() * usernames.length)];
+            const type = Math.random() > 0.5 ? 'earned' : 'submitted a withdrawal';
+            let amount;
+            let bgColor;
+            if (type === 'earned') {
+                amount = getRandomAmount(70, 500);
+                bgColor = 'rgba(40, 167, 69, 0.98)'; /* Green */
+            } else {
+                amount = getRandomAmount(500, 5000);
+                bgColor = 'rgba(0, 123, 255, 0.98)'; /* Blue */
+            }
+
+            notificationBar.style.backgroundColor = bgColor;
+            notificationBar.textContent = `${randomUser} ${type} $${amount}!`;
+            notificationBar.style.display = 'block';
+            notificationBar.style.animation = 'notificationBounceIn 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards';
+
+            setTimeout(() => {
+                notificationBar.style.animation = 'notificationBounceOut 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards';
+                setTimeout(() => {
+                    notificationBar.style.display = 'none';
+                }, 600); // Wait for slideOut animation to complete
+            }, 4000); // Show for 4 seconds
+        }
+
+        // Initial setup on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateBalanceDisplay();
+            renderTasks(); // Render the 10 tasks initially
+            showSection('dashboard', document.querySelector('nav button')); // Show dashboard initially
+            document.getElementById('chatboxTrigger').addEventListener('click', toggleChatbox);
+
+            // Start showing notifications every 5-10 seconds
+            setInterval(showNotification, Math.random() * 5000 + 5000); // Between 5 to 10 seconds
+        });
+    </script>
+</body>
+</html>
